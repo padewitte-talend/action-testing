@@ -11,6 +11,15 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  slackNotification:
+    name: Slack Notification
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2.0.2
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
@@ -20,7 +29,9 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
+    
+    - name: Branch namz
+      run: echo running on branch ${GITHUB_REF##*/}
     # Runs a single command using the runners shell
     - name: Run a one-line script
-      run: echo Commit added to maintenance branch!
+      run: echo Commit added to maintenance branch ${GITHUB_REF##*/}!
