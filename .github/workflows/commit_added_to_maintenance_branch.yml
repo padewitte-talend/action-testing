@@ -20,7 +20,10 @@ jobs:
       uses: rtCamp/action-slack-notify@master
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_USERNAME: Release_bot
+        SLACK_USERNAME: "TMC Release bot"
+        SLACK_ICON_EMOJI: ":information_source:"
+        SLACK_FOOTER: ""
+        
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
