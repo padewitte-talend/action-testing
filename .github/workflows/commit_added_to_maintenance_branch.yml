@@ -24,7 +24,7 @@ jobs:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_USERNAME: "TMC Release bot"
         SLACK_ICON_EMOJI: ":information_source:"
-        SLACK_FOOTER: ${{ GITHUB_REF##*/ }}
+        SLACK_FOOTER: "${{ GITHUB_REF##*/ }}"
         
   # This workflow contains a single job called "build"
   build:
